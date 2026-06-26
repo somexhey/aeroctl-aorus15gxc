@@ -1,0 +1,1791 @@
+﻿{
+    "errors":  [
+
+               ],
+    "wmiSetMethods":  [
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetGPUFanDuty",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetMaxCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetPEGorSG",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvPowerConfig",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvD1",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvD2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvD3",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvD4",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvD5",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetNvThermalTarget",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetSuperQuiet",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetLightBar",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetDeepFan",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SavePowerOnTime",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetChargePolicy",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetChargeStop",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetCurrentFanStep",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetStepFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetFanIndexValue",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetVRStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetFixedFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetFixedFanSpeed",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetFanAdjustStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetAutoFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetBluetoothLED",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetWiFiLED",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "TurnOffFan",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "ControlSLIMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "IsPowerSaving",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "DisableBTFnKey",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "DisableCommFnKey",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetSleepUSBCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetHibernationUSBCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetFanSpeed",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetCamera2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetChargeMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetAIBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SaveFirstDate",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetRGBLed",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetEcValueBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetWhisperMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetBrightness",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetBluetooth",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetWiFi",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetW35G",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetBrightnessOff",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetCamera",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "WMISetMuteStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetTouchPad",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "BlockWinkey",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "DecreaseBrigtness",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "IncreaseBrightness",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetTurboMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "NotifyInWindows",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetSmartCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetUSB30",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetTouchScreen",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetSmartTurbo",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetKeyboardMatrix",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SmartTurboControl",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetGSensorStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetOnboardLANStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "NotifyHDMIStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetKeyBoardBackLight",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetSmartCool",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "ToggleRotationLock",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "NotifyEC3GDevice",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetPEG2orSG2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "SetDynamicBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          }
+                      ],
+    "timestamp":  "2026-06-25T14:23:39.7194377+03:00",
+    "wmiAvailable":  true,
+    "wmiGetMethods":  [
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetCPUFanDuty",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetGPUFanDuty",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetBatteryCount",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetMaxCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetPEGorSG",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetNvPowerConfig",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetThermalData",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetNvThermalTarget",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckHeavyLoading",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetLightBar",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetDeepFan",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetBatteryHealth",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFanHealth",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetPowerOnTime",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetChargePolicy",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetChargeStop",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetStepFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFanIndexValue",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetVRStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFixedFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFixedFanSpeed",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "IsDeviceExist",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getBattCyc1",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getBattCyc",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFanPWMStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFanAdjustStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetAutoFanStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetSleepUSBCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetHibernationUSBCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckUCFSupport",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFanSpeed",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetCamera2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetTouchScreenSupport",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetAIBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetFirstDate",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetEcValueBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetWhisperMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetBrightness",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetBluetooth",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetWiFi",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetW35G",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetBirightnessOff",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetCamera",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetTouchPad",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetWinkeyBlocking",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetTurboMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetSmartCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckSmartCharge",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckSmartTurbo",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetUSB30",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckUSB30",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetDockingStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetTouchScreen",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetSmartTurbo",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetLid1Status",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetKeyboardMatrix",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetSmartTurboStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetGSensorStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetOnboardLANStatus",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckDocking",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetKeyBoardBackLight",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "QueryLightSensor",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "QueryThermalSensor",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetSmartCool",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetLightSensorVersion",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "CheckBIOSMode",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "Check3GModule",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getCpuTemp",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getGpuTemp1",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getGpuTemp2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getRpm1",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "getRpm2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetPEG2orSG2",
+                              "outParams":  [
+
+                                            ]
+                          },
+                          {
+                              "inParams":  [
+
+                                           ],
+                              "name":  "GetDynamicBoostStatus",
+                              "outParams":  [
+
+                                            ]
+                          }
+                      ],
+    "acpimofVersion":  "10.0.10011.16384",
+    "acpimofInstalled":  true,
+    "hidDevices":  [
+                       {
+                           "instanceId":  "ACPI\\CUST0001\\4\u0026341073FB\u00260",
+                           "hardwareId":  "ACPI\\VEN_CUST\u0026DEV_0001",
+                           "friendlyName":  "Устройство HID на шине I2C"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_02\u0026COL03\\7\u0026F902ADA\u00260\u00260002",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02\u0026Col03",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимое устройство управления",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_02\u0026COL02\\7\u0026F902ADA\u00260\u00260001",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02\u0026Col02",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимый системный контроллер",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "USB\\VID_1044\u0026PID_7A3B\u0026MI_01\\6\u0026280734F1\u00260\u00260001",
+                           "hardwareId":  "USB\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_01",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "USB-устройство ввода",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\CUST0001\u0026COL02\\5\u002636709956\u00260\u00260001",
+                           "hardwareId":  "HID\\VEN_CUST\u0026DEV_0001\u0026Col02",
+                           "friendlyName":  "HID-совместимое устройство, определенное поставщиком"
+                       },
+                       {
+                           "instanceId":  "USB\\VID_1044\u0026PID_7A3B\u0026MI_02\\6\u0026280734F1\u00260\u00260002",
+                           "hardwareId":  "USB\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "USB-устройство ввода",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_03\\7\u00263367689C\u00260\u00260000",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_03",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимое устройство, определенное поставщиком",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\CUST0001\u0026COL03\\5\u002636709956\u00260\u00260002",
+                           "hardwareId":  "HID\\VEN_CUST\u0026DEV_0001\u0026Col03",
+                           "friendlyName":  "HID-совместимая сенсорная панель"
+                       },
+                       {
+                           "instanceId":  "USB\\VID_1044\u0026PID_7A3B\u0026MI_03\\6\u0026280734F1\u00260\u00260003",
+                           "hardwareId":  "USB\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_03",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "USB-устройство ввода",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\CUST0001\u0026COL04\\5\u002636709956\u00260\u00260003",
+                           "hardwareId":  "HID\\VEN_CUST\u0026DEV_0001\u0026Col04",
+                           "friendlyName":  "Microsoft Input Configuration Device"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_02\u0026COL08\\7\u0026F902ADA\u00260\u00260007",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02\u0026Col08",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "Элементы управления беспроводным радиоустройством с поддержкой HID",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "USB\\VID_1044\u0026PID_7A3B\u0026MI_00\\6\u0026280734F1\u00260\u00260000",
+                           "hardwareId":  "USB\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_00",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "USB-устройство ввода",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_02\u0026COL07\\7\u0026F902ADA\u00260\u00260006",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02\u0026Col07",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимое устройство, определенное поставщиком",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_01\\7\u0026144712E8\u00260\u00260000",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_01",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимое устройство, определенное поставщиком",
+                           "vid":  "0x1044"
+                       },
+                       {
+                           "instanceId":  "BTHLEDEVICE\\{00001812-0000-1000-8000-00805F9B34FB}_DEV_VID\u0026022DC8_PID\u0026301B_REV\u00260001_E417D85B2D9C\\8\u0026102A38FC\u00260\u0026000F",
+                           "hardwareId":  "BTHLEDevice\\{00001812-0000-1000-8000-00805f9b34fb}_Dev_VID\u0026022dc8_PID\u0026301b_REV\u00260001",
+                           "friendlyName":  "Устройство HID, совместимое с GATT Bluetooth с низким энергопотреблением"
+                       },
+                       {
+                           "instanceId":  "HID\\VID_1044\u0026PID_7A3B\u0026MI_02\u0026COL04\\7\u0026F902ADA\u00260\u00260003",
+                           "hardwareId":  "HID\\VID_1044\u0026PID_7A3B\u0026REV_0229\u0026MI_02\u0026Col04",
+                           "pid":  "0x7A3B",
+                           "friendlyName":  "HID-совместимое устройство, определенное поставщиком",
+                           "vid":  "0x1044"
+                       }
+                   ],
+    "wmiAcpiMofImagePath":  "C:\\Windows\\SysWOW64\\acpimof.dll",
+    "systemInfo":  {
+                       "serialNumber":  "SN21010J001475",
+                       "sku":  "X5LXC",
+                       "manufacturer":  "GIGABYTE",
+                       "cpuCores":  8,
+                       "baseboard":  "AORUS 15G XC",
+                       "cpuThreads":  16,
+                       "gpuNvidia":  "NVIDIA GeForce RTX 3070 Laptop GPU",
+                       "model":  "AORUS 15G XC",
+                       "biosVersion":  "FB07",
+                       "cpuName":  "Intel(R) Core(TM) i7-10870H CPU @ 2.20GHz",
+                       "gpuIntel":  ""
+                   },
+    "wmiGetTest":  [
+                       {
+                           "method":  "GetCPUFanDuty",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetGPUFanDuty",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetBatteryCount",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetMaxCharge",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetPEGorSG",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetNvPowerConfig",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetThermalData",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetNvThermalTarget",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckHeavyLoading",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetLightBar",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetDeepFan",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetBatteryHealth",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFanHealth",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetPowerOnTime",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetChargePolicy",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetChargeStop",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetStepFanStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFanIndexValue",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetVRStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFixedFanStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFixedFanSpeed",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "IsDeviceExist",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getBattCyc1",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getBattCyc",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFanPWMStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFanAdjustStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetAutoFanStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetSleepUSBCharge",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetHibernationUSBCharge",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckUCFSupport",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFanSpeed",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetCamera2",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetTouchScreenSupport",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetAIBoostStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetFirstDate",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetEcValueBoostStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetWhisperMode",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetBrightness",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetBluetooth",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetWiFi",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetW35G",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetBirightnessOff",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetCamera",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetTouchPad",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetWinkeyBlocking",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetTurboMode",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetSmartCharge",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckSmartCharge",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckSmartTurbo",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetUSB30",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckUSB30",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetDockingStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetTouchScreen",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetSmartTurbo",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetLid1Status",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetKeyboardMatrix",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetSmartTurboStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetGSensorStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetOnboardLANStatus",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckDocking",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetKeyBoardBackLight",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "QueryLightSensor",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "QueryThermalSensor",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetSmartCool",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetLightSensorVersion",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "CheckBIOSMode",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "Check3GModule",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getCpuTemp",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getGpuTemp1",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getGpuTemp2",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getRpm1",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "getRpm2",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetPEG2orSG2",
+                           "result":  "",
+                           "success":  true
+                       },
+                       {
+                           "method":  "GetDynamicBoostStatus",
+                           "result":  "",
+                           "success":  true
+                       }
+                   ],
+    "wmiAcpiRegistered":  true
+}

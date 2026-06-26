@@ -1,0 +1,44 @@
+// KERNEL32
+CreateFile
+GetSystemPowerStatus
+LocalFree
+
+// USER32
+EnumDisplaySettings
+EnumDisplayDevices
+ChangeDisplaySettings
+DISPLAY_DEVICE_REMOTE
+RegisterRawInputDevices
+GetRawInputData
+SendInput
+FindWindow
+PostMessage
+RegisterWindowMessage
+RAWINPUT
+RID_DEVICE_INFO_TYPE
+
+// SETUPAPI
+SetupDiGetClassDevs
+SetupDiGetDeviceInterfaceDetail
+SetupDiEnumDeviceInterfaces
+SetupDiDestroyDeviceInfoList
+DIGCF_DEVICEINTERFACE
+DIGCF_PRESENT
+
+// HID
+HidD_GetHidGuid
+HidD_GetAttributes
+HidD_GetPreparsedData
+HidD_FreePreparsedData
+HidP_GetCaps
+HidD_GetFeature
+HidD_SetFeature
+
+// powrprof
+PowerGetActiveScheme
+PowerSetActiveScheme
+PowerReadACValueIndex
+PowerWriteACValueIndex
+PowerReadDCValueIndex
+PowerWriteDCValueIndex
+GUID_VIDEO_SUBGROUP

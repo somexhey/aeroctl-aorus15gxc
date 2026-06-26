@@ -1,0 +1,42 @@
+﻿<Window x:Class="AeroCtl.UI.FanCurveEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AeroCtl.UI"
+        mc:Ignorable="d"
+        Title="Fan Curve" Height="450" Width="600" DataContext="{Binding RelativeSource={RelativeSource Self}}" MinWidth="400" MinHeight="300">
+    <Window.Resources>
+        <Style TargetType="Ellipse" x:Key="EllipseStyle">
+            <Setter Property="Fill" Value="Black" />
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Fill" Value="MediumVioletRed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button Name="applyButton" Width="100" Click="applyButton_OnClick" Margin="5">Apply</Button>
+            <Button Name="addButton" Width="100" Click="addButton_OnClick" Margin="5" IsEnabled="{Binding IsCurveEditable}" Focusable="false">Add Point</Button>
+            <Button Name="deleteButton" Width="100" Click="deleteButton_OnClick" Margin="5" IsEnabled="{Binding IsCurveEditable}" Focusable="false">Delete Point</Button>
+            <TextBlock Name="infoLabel" VerticalAlignment="Center" />
+        </StackPanel>
+        <DockPanel Margin="0 25 25 0">
+            <TextBlock DockPanel.Dock="Bottom" Height="25" TextAlignment="Center">Temperature in °C</TextBlock>
+            <Grid DockPanel.Dock="Left" Width="25">
+                <TextBlock TextAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="-90"></RotateTransform>
+                    </TextBlock.LayoutTransform>
+                    Fan speed
+                </TextBlock>
+            </Grid>
+
+            <Canvas Name="canvas" Background="#EEEEEE">
+
+            </Canvas>
+        </DockPanel>
+    </DockPanel>
+</Window>

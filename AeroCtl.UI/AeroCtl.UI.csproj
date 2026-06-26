@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\Common.targets"/>
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+
+		<Description>Open-source AERO control panel</Description>
+		<AssemblyTitle>AeroCtl</AssemblyTitle>
+		<Product>AeroCtl</Product>
+		<UseWpf>true</UseWpf>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>Main.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>false</SelfContained>
+		<PublishAot>false</PublishAot>
+		<PublishTrimmed>false</PublishTrimmed>
+		<PublishReadyToRun>false</PublishReadyToRun>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AeroCtl\AeroCtl.csproj"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Main.ico"/>
+		<EmbeddedResource Include="Main.ico"/>
+	</ItemGroup>
+</Project>

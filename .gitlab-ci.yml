@@ -1,0 +1,34 @@
+stages:
+ - build
+ - publish
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  S3_URL: $S3_URL
+  S3_ACCESS_KEY: $S3_ACCESS_KEY
+  S3_SECRET_KEY: $S3_SECRET_KEY
+
+build:
+  stage: build
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - 'dotnet publish AeroCtl.UI -c Release -o publish'
+  artifacts:
+    paths:
+     - publish
+    expire_in: 30 days
+
+publish:
+  when: manual
+  dependencies:
+    - build
+  variables: 
+    DEBIAN_FRONTEND: "noninteractive"
+  stage: publish
+  image: debian:trixie
+  before_script:
+    - apt-get update
+    - apt-get install -y minio-client
+    - minio-client alias set f0x $S3_URL $S3_ACCESS_KEY $S3_SECRET_KEY
+  script:
+    - minio-client cp "publish/AeroCtl.UI.exe" "f0x/aeroctl/$CI_COMMIT_REF_NAME/AeroCtl.UI.exe"

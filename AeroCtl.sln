@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeroCtl", "AeroCtl\AeroCtl.csproj", "{72AF0B9E-75C6-4F98-B586-777DF53193C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeroCtl.UI", "AeroCtl.UI\AeroCtl.UI.csproj", "{057BA2B1-1DEF-4088-B8E7-39B01F7DBE69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{CB49CA9B-17CD-4513-9506-334458FD0D94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeroCtl.Rgb.Calibrate", "Samples\AeroCtl.Rgb.Calibrate\AeroCtl.Rgb.Calibrate.csproj", "{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeroCtl.Rgb.LockKeys", "Samples\AeroCtl.Rgb.LockKeys\AeroCtl.Rgb.LockKeys.csproj", "{B64DD80F-1418-4A8A-AAC7-5153FC756573}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AeroCtl.Rgb.Rainbow", "Samples\AeroCtl.Rgb.Rainbow\AeroCtl.Rgb.Rainbow.csproj", "{DDCEBBB7-4245-4096-819D-AA8E7B837F27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{D1981CDF-9ABB-4F7D-8F79-8C4C5B32D2E6}"
+	ProjectSection(SolutionItems) = preProject
+		.gitlab-ci.yml = .gitlab-ci.yml
+		Common.targets = Common.targets
+		LICENSE = LICENSE
+		README.md = README.md
+		SemVer.cs = SemVer.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72AF0B9E-75C6-4F98-B586-777DF53193C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AF0B9E-75C6-4F98-B586-777DF53193C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AF0B9E-75C6-4F98-B586-777DF53193C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AF0B9E-75C6-4F98-B586-777DF53193C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057BA2B1-1DEF-4088-B8E7-39B01F7DBE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057BA2B1-1DEF-4088-B8E7-39B01F7DBE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057BA2B1-1DEF-4088-B8E7-39B01F7DBE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057BA2B1-1DEF-4088-B8E7-39B01F7DBE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64DD80F-1418-4A8A-AAC7-5153FC756573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64DD80F-1418-4A8A-AAC7-5153FC756573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64DD80F-1418-4A8A-AAC7-5153FC756573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64DD80F-1418-4A8A-AAC7-5153FC756573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDCEBBB7-4245-4096-819D-AA8E7B837F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDCEBBB7-4245-4096-819D-AA8E7B837F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDCEBBB7-4245-4096-819D-AA8E7B837F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDCEBBB7-4245-4096-819D-AA8E7B837F27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{484A2AE8-A1E5-41CF-8DCE-81E8FD116E18} = {CB49CA9B-17CD-4513-9506-334458FD0D94}
+		{B64DD80F-1418-4A8A-AAC7-5153FC756573} = {CB49CA9B-17CD-4513-9506-334458FD0D94}
+		{DDCEBBB7-4245-4096-819D-AA8E7B837F27} = {CB49CA9B-17CD-4513-9506-334458FD0D94}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A1BB3A2-A00F-4948-864C-048197D4E4DA}
+	EndGlobalSection
+EndGlobal

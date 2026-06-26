@@ -1,0 +1,58 @@
+﻿<Window x:Class="AeroCtl.UI.FanConfigEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AeroCtl.UI"
+        xmlns:softwareFan="clr-namespace:AeroCtl.UI.SoftwareFan"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Fan Configuration" SizeToContent="Height" Width="350">
+	<Window.Resources>
+		<local:PercentageConverter x:Key="PercentConv" />
+	</Window.Resources>
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+			<Button Width="80" Margin="5" Click="onOkClicked">OK</Button>
+		</StackPanel>
+		<Grid Margin="5 5 5 0">
+			<Grid.Resources>
+				<Style TargetType="TextBlock">
+					<Setter Property="VerticalAlignment" Value="Center" />
+				</Style>
+				<Style TargetType="TextBox">
+					<Setter Property="Margin" Value="1" />
+				</Style>
+				<Style TargetType="ComboBox">
+					<Setter Property="Margin" Value="1" />
+				</Style>
+			</Grid.Resources>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Grid.Row="0" Grid.Column="0">Ramp up speed</TextBlock>
+			<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Config.RampUpSpeed, Converter={StaticResource PercentConv}}" />
+			<TextBlock Grid.Row="0" Grid.Column="2">% / sec</TextBlock>
+
+			<TextBlock Grid.Row="1" Grid.Column="0">Ramp down speed</TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Config.RampDownSpeed, Converter={StaticResource PercentConv}}" />
+			<TextBlock Grid.Row="1" Grid.Column="2">% / sec</TextBlock>
+
+			<TextBlock Grid.Row="2" Grid.Column="0">Update interval</TextBlock>
+			<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Config.Interval}" />
+
+			<TextBlock Grid.Row="3" Grid.Column="0">Thread scheduling mode</TextBlock>
+			<ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Source={local:Enumeration {x:Type softwareFan:FanSchedulingMode}}}"
+			          DisplayMemberPath="Description" SelectedValue="{Binding Config.SchedulingMode}" SelectedValuePath="Value" />
+		</Grid>
+	</DockPanel>
+</Window>
