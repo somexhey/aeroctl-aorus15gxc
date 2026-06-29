@@ -16,8 +16,6 @@ namespace AeroCtl.UI;
 /// </summary>
 public partial class MainWindow : Window
 {
-	private bool supressShutdownOnClose;
-
 	public AeroController Controller { get; }
 
 	public string GitInfo => $"AeroCtl v{ThisAssembly.Git.BaseTag}";
@@ -33,17 +31,17 @@ public partial class MainWindow : Window
 		base.OnStateChanged(e);
 
 		if (this.WindowState == WindowState.Minimized)
-		{
-			// Minimizing should close the window, but not exist the app.
-			this.supressShutdownOnClose = true;
-			this.Close();
-		}
+			this.Hide();
 	}
 
 	protected override void OnClosing(CancelEventArgs e)
 	{
-		if (this.supressShutdownOnClose)
+		if (this.Controller.AutoRestart)
+		{
+			e.Cancel = true;
+			this.Hide();
 			return;
+		}
 
 		Application.Current.Shutdown();
 	}

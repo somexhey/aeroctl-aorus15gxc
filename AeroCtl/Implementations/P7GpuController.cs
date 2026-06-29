@@ -1,4 +1,6 @@
-﻿using System.Management;
+﻿using System;
+using System.IO;
+using System.Management;
 using System.Threading.Tasks;
 
 namespace AeroCtl;
@@ -10,6 +12,11 @@ public class P7GpuController : NvGpuController
 {
 	private readonly AeroWmi wmi;
 
+	private static void Log(string msg)
+	{
+		File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} {msg}\n");
+	}
+
 	public P7GpuController(AeroWmi wmi)
 	{
 		this.wmi = wmi;
@@ -17,6 +24,9 @@ public class P7GpuController : NvGpuController
 		this.DynamicBoostSupported = this.wmi.HasMethod("GetDynamicBoostStatus");
 		this.AiBoostSupported = this.wmi.HasMethod("GetAIBoostStatus");
 		this.ThermalTargetSupported = this.wmi.HasMethod("GetNvThermalTarget");
+		this.GpuModeSupported = this.wmi.HasMethod("GetPEG2orSG2");
+
+		Log($"P7GpuController: PowerConfig={this.PowerConfigSupported}, DynamicBoost={this.DynamicBoostSupported}, AiBoost={this.AiBoostSupported}, ThermalTarget={this.ThermalTargetSupported}, GpuMode={this.GpuModeSupported}");
 	}
 
 	public override async ValueTask<double?> GetTemperatureAsync()
@@ -40,47 +50,53 @@ public class P7GpuController : NvGpuController
 	}
 
 	public bool? PowerConfigSupported { get; private set; }
+	private bool powerConfigValue;
 
 	public async Task<bool> GetPowerConfigAsync()
 	{
 		try
 		{
-			bool res = await this.wmi.InvokeGetAsync<byte>("GetNvPowerConfig") != 0;
+			bool res = await this.invokeGetBoolAsync("GetNvPowerConfig") != false;
 			this.PowerConfigSupported = true;
+			this.powerConfigValue = res;
 			return res;
 		}
-		catch (ManagementException)
+		catch (ManagementException ex)
 		{
-			this.PowerConfigSupported = false;
-			return false;
+			Log($"GetNvPowerConfig failed (setter still works): {ex.Message}");
+			return this.powerConfigValue;
 		}
 	}
 
 	public async Task SetPowerConfigAsync(bool value)
 	{
 		await this.wmi.InvokeSetAsync<byte>("SetNvPowerConfig", value ? (byte)1 : (byte)0);
+		this.powerConfigValue = value;
 	}
 
 	public bool? DynamicBoostSupported { get; private set; }
+	private bool dynamicBoostValue;
 
 	public async Task<bool> GetDynamicBoostAsync()
 	{
 		try
 		{
-			bool res = await this.wmi.InvokeGetAsync<byte>("GetDynamicBoostStatus") != 1;
+			bool res = await this.invokeGetBoolAsync("GetDynamicBoostStatus") != false;
 			this.DynamicBoostSupported = true;
+			this.dynamicBoostValue = res;
 			return res;
 		}
-		catch (ManagementException)
+		catch (ManagementException ex)
 		{
-			this.DynamicBoostSupported = false;
-			return false;
+			Log($"GetDynamicBoostStatus failed (setter still works): {ex.Message}");
+			return this.dynamicBoostValue;
 		}
 	}
 
 	public async Task SetDynamicBoostAsync(bool value)
 	{
 		await this.wmi.InvokeSetAsync<byte>("SetDynamicBoostStatus", value ? (byte)1 : (byte)0);
+		this.dynamicBoostValue = value;
 	}
 
 	public bool? AiBoostSupported { get; private set; }
@@ -89,12 +105,13 @@ public class P7GpuController : NvGpuController
 	{
 		try
 		{
-			bool res = await this.wmi.InvokeGetAsync<byte>("GetAIBoostStatus") != 0;
+			bool res = await this.invokeGetBoolAsync("GetAIBoostStatus") != false;
 			this.AiBoostSupported = true;
 			return res;
 		}
-		catch (ManagementException)
+		catch (ManagementException ex)
 		{
+			Log($"GetAIBoostStatus failed: {ex.Message}");
 			this.AiBoostSupported = false;
 			return false;
 		}
@@ -111,12 +128,13 @@ public class P7GpuController : NvGpuController
 	{
 		try
 		{
-			bool res = await this.wmi.InvokeGetAsync<byte>("GetNvThermalTarget") != 0;
+			bool res = await this.invokeGetBoolAsync("GetNvThermalTarget") != false;
 			this.ThermalTargetSupported = true;
 			return res;
 		}
-		catch (ManagementException)
+		catch (ManagementException ex)
 		{
+			Log($"GetNvThermalTarget failed: {ex.Message}");
 			this.ThermalTargetSupported = false;
 			return false;
 		}
@@ -125,5 +143,44 @@ public class P7GpuController : NvGpuController
 	public async Task SetThermalTargetEnabledAsync(bool value)
 	{
 		await this.wmi.InvokeSetAsync<byte>("SetNvThermalTarget", value ? (byte)1 : (byte)0);
+	}
+
+	public bool? GpuModeSupported { get; private set; }
+
+	public async Task<int> GetGpuModeAsync()
+	{
+		try
+		{
+			byte res = await this.wmi.InvokeGetAsync<byte>("GetPEG2orSG2");
+			Log($"GetPEG2orSG2() => {res}");
+			this.GpuModeSupported = true;
+			return res;
+		}
+		catch (ManagementException ex)
+		{
+			Log($"GetPEG2orSG2 failed: {ex.Message}");
+			this.GpuModeSupported = false;
+			return 0;
+		}
+	}
+
+	public async Task SetGpuModeAsync(int value)
+	{
+		await this.wmi.InvokeSetAsync<byte>("SetPEG2orSG2", (byte)value);
+	}
+
+	private async Task<bool> invokeGetBoolAsync(string methodName)
+	{
+		try
+		{
+			byte result = await this.wmi.InvokeGetAsync<byte>(methodName);
+			Log($"{methodName}() => Data={result}");
+			return result != 0;
+		}
+		catch (Exception ex)
+		{
+			Log($"{methodName} threw: {ex.GetType().Name}: {ex.Message}");
+			throw;
+		}
 	}
 }

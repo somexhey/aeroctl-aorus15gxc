@@ -16,6 +16,8 @@ public class AeroSettings
 	public double FixedFanSpeed { get; set; }
 	public double AutoFanAdjust { get; set; }
 	public bool StartMinimized { get; set; }
+	public bool AutoStart { get; set; }
+	public bool AutoRestart { get; set; } = true;
 	public int FanProfileAlt { get; set; }
 	public FanConfig SoftwareFanConfig { get; set; }
 	public uint DisplayFrequencyAc { get; set; }

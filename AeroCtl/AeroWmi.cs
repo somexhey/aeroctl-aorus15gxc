@@ -264,26 +264,23 @@ public class AeroWmi : IDisposable
 		try
 		{
 			ManagementBaseObject inParams = this.getClass.GetMethodParameters(methodName);
+
 			if (methodName == "GetNvPowerConfig")
 			{
-				// Quirk
 				if (inParams != null)
 				{
-					inParams["Index"] = null;
+					try
+					{
+						inParams["Index"] = null;
+					}
+					catch (ManagementException)
+					{
+					}
 				}
 			}
 
 			ManagementBaseObject outParams = this.get.InvokeMethod(methodName, inParams, null);
-			T res;
-			if (outParams == null)
-			{
-				res = default(T);
-			}
-			else
-			{
-				res = (T)outParams["Data"];
-			}
-
+			T res = outParams == null ? default : (T)outParams["Data"];
 			Debug.WriteLine($"{methodName}() = {res}");
 			return res;
 		}
@@ -301,6 +298,7 @@ public class AeroWmi : IDisposable
 				return true;
 		}
 
+		Debug.WriteLine($"HasMethod('{methodName}'): method not found in GB_WMIACPI_Get (checked {this.getClass.Methods.Count} methods)");
 		return false;
 	}
 

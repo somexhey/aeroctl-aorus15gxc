@@ -136,6 +136,19 @@
 									          ToolTip="Limits CPU (and possibly GPU) power and turns off fans if they are below some thermal threshold (about 55°C).">
 										Aggressive thermal target
 									</CheckBox>
+									<WrapPanel Margin="0 8 0 0" IsEnabled="{Binding Controller.GpuModeSupported}">
+										<TextBlock VerticalAlignment="Center" Margin="0 0 8 0">GPU mode:</TextBlock>
+										<ComboBox SelectedIndex="{Binding Controller.GpuMode}" Width="120"
+										          ToolTip="Switches between integrated Intel and discrete NVIDIA GPU. Reboot required to take full effect.">
+											<ComboBoxItem>iGPU</ComboBoxItem>
+											<ComboBoxItem>dGPU</ComboBoxItem>
+										</ComboBox>
+									</WrapPanel>
+									<TextBlock Margin="0 4 0 0" FontSize="10" Foreground="Gray"
+									           IsEnabled="{Binding Controller.GpuModeSupported}"
+									           TextWrapping="Wrap" MaxWidth="200">
+										<Run FontWeight="Bold">Note:</Run> GPU mode switch requires a reboot to take full effect.
+									</TextBlock>
 								</StackPanel>
 								<StackPanel Margin="0 0 16 0">
 									<CheckBox IsChecked="{Binding Controller.SleepUsbCharge}"
@@ -152,6 +165,14 @@
 									<CheckBox IsChecked="{Binding Controller.StartMinimized}" Margin="0 15 0 0"
 									          ToolTip="Whether the app will start minimized to tray.">
 										Start minimized
+									</CheckBox>
+									<CheckBox IsChecked="{Binding Controller.AutoStart}"
+									          ToolTip="Automatically start AeroCtl with Windows.">
+										Auto-start with Windows
+									</CheckBox>
+									<CheckBox IsChecked="{Binding Controller.AutoRestart}"
+									          ToolTip="Restart AeroCtl automatically when exited. Hold Shift while clicking Exit to bypass.">
+										Auto-restart on exit
 									</CheckBox>
 								</StackPanel>
 							</StackPanel>

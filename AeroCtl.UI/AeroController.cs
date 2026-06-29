@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -56,6 +58,80 @@ public class AeroController : INotifyPropertyChanged
 				AeroSettings.Save();
 			}
 		}
+	}
+
+	#endregion
+
+	#region AutoStart
+
+	private bool autoStart;
+
+	public bool AutoStart
+	{
+		get => this.autoStart;
+		set
+		{
+			this.autoStart = value;
+			this.OnPropertyChanged();
+
+			if (!this.loading)
+			{
+				using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+				if (value)
+					key?.SetValue("AeroCtl.UI", $"\"{Environment.ProcessPath}\"");
+				else
+					key?.DeleteValue("AeroCtl.UI", false);
+
+				AeroSettings.Default.AutoStart = value;
+				AeroSettings.Save();
+			}
+		}
+	}
+
+	#endregion
+
+	#region AutoRestart
+
+	private bool autoRestart = true;
+
+	public bool AutoRestart
+	{
+		get => this.autoRestart;
+		set
+		{
+			this.autoRestart = value;
+			this.OnPropertyChanged();
+
+			if (!this.loading)
+			{
+				if (value)
+					RegisterForRestart();
+				else
+					UnregisterForRestart();
+
+				AeroSettings.Default.AutoRestart = value;
+				AeroSettings.Save();
+			}
+		}
+	}
+
+	/// <summary>
+	/// Registers the process for automatic restart via Windows Application Restart &amp; Recovery.
+	/// </summary>
+	private static void RegisterForRestart()
+	{
+		try
+		{
+			string exe = Environment.ProcessPath ?? Path.Combine(AppContext.BaseDirectory, "AeroCtl.UI.exe");
+			NativeMethods.RegisterApplicationRestart($"\"{exe}\"", 0);
+		}
+		catch { }
+	}
+
+	private static void UnregisterForRestart()
+	{
+		try { NativeMethods.UnregisterApplicationRestart(); }
+		catch { }
 	}
 
 	#endregion
@@ -922,6 +998,38 @@ public class AeroController : INotifyPropertyChanged
 
 	#endregion
 
+	#region GpuMode
+
+	private int gpuMode = -1;
+	private bool gpuModeSupported;
+
+	public int GpuMode
+	{
+		get => this.gpuMode;
+		set
+		{
+			if (this.gpuMode == value)
+				return;
+			this.gpuMode = value;
+			this.OnPropertyChanged();
+
+			if (value >= 0 && value <= 1 && !this.updating.Value)
+				this.updates.Enqueue(() => ((P7GpuController)this.Aero.Gpu).SetGpuModeAsync(value));
+		}
+	}
+
+	public bool GpuModeSupported
+	{
+		get => this.gpuModeSupported;
+		private set
+		{
+			this.gpuModeSupported = value;
+			this.OnPropertyChanged();
+		}
+	}
+
+	#endregion
+
 	#region DisplayAvailable
 
 	private bool displayAvailable;
@@ -1060,6 +1168,8 @@ public class AeroController : INotifyPropertyChanged
 		{
 			AeroSettings s = AeroSettings.Default;
 			this.StartMinimized = s.StartMinimized;
+			this.AutoStart = s.AutoStart;
+			this.AutoRestart = s.AutoRestart;
 			this.FanProfile = (FanProfile)s.FanProfile;
 			this.FanProfileAlt = (FanProfile)s.FanProfileAlt;
 			this.FixedFanSpeed = s.FixedFanSpeed;
@@ -1076,6 +1186,9 @@ public class AeroController : INotifyPropertyChanged
 			this.FanProfileInvalid = true;
 			this.loading = false;
 		}
+
+		if (this.autoRestart)
+			RegisterForRestart();
 	}
 
 	private async Task applyFanProfileAsync()
@@ -1166,12 +1279,53 @@ public class AeroController : INotifyPropertyChanged
 					this.GpuPowerConfigSupported = newGpu.PowerConfigSupported ?? true;
 					this.GpuDynamicBoostSupported = newGpu.DynamicBoostSupported ?? true;
 					this.GpuThermalTargetSupported = newGpu.ThermalTargetSupported ?? true;
+					this.GpuModeSupported = newGpu.GpuModeSupported ?? true;
 
 					// Update GPU settings for those that are supported.
-					this.GpuAiBoost = this.GpuAiBoostSupported && await newGpu.GetAiBoostEnabledAsync();
-					this.GpuPowerConfig = this.GpuPowerConfigSupported && await newGpu.GetPowerConfigAsync();
-					this.GpuDynamicBoost = this.GpuDynamicBoostSupported && await newGpu.GetDynamicBoostAsync();
-					this.GpuThermalTarget = this.GpuThermalTargetSupported && await newGpu.GetThermalTargetEnabledAsync();
+					try
+					{
+						this.GpuAiBoost = this.GpuAiBoostSupported && await newGpu.GetAiBoostEnabledAsync();
+					}
+					catch (Exception ex)
+					{
+						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetAiBoostEnabledAsync threw: {ex}\n");
+					}
+
+					try
+					{
+						this.GpuPowerConfig = this.GpuPowerConfigSupported && await newGpu.GetPowerConfigAsync();
+					}
+					catch (Exception ex)
+					{
+						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetPowerConfigAsync threw: {ex}\n");
+					}
+
+					try
+					{
+						this.GpuDynamicBoost = this.GpuDynamicBoostSupported && await newGpu.GetDynamicBoostAsync();
+					}
+					catch (Exception ex)
+					{
+						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetDynamicBoostAsync threw: {ex}\n");
+					}
+
+					try
+					{
+						this.GpuThermalTarget = this.GpuThermalTargetSupported && await newGpu.GetThermalTargetEnabledAsync();
+					}
+					catch (Exception ex)
+					{
+						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetThermalTargetEnabledAsync threw: {ex}\n");
+					}
+
+					try
+					{
+						this.GpuMode = await newGpu.GetGpuModeAsync();
+					}
+					catch (Exception ex)
+					{
+						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetGpuModeAsync threw: {ex}\n");
+					}
 				}
 
 				(this.FanRpm1, this.FanRpm2) = await this.Aero.Fans.GetRpmAsync();
@@ -1295,4 +1449,13 @@ public class AeroController : INotifyPropertyChanged
 	}
 
 	#endregion
+}
+
+internal static class NativeMethods
+{
+	[DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+	internal static extern uint RegisterApplicationRestart(string pwzCommandline, uint dwFlags);
+
+	[DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+	internal static extern uint UnregisterApplicationRestart();
 }

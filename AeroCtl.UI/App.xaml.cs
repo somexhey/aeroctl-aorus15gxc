@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using AeroCtl;
 
 namespace AeroCtl.UI;
 
@@ -65,6 +66,118 @@ public partial class App
 		};
 
 		this.trayIcon.DoubleClick += (_, _) => { this.showWindow(); };
+
+		// Build tray context menu.
+		var trayMenu = new ContextMenuStrip();
+
+		trayMenu.Items.Add("Show window", null, (_, _) => this.showWindow());
+
+		trayMenu.Items.Add(new ToolStripSeparator());
+
+		// Fan profile submenu.
+		var fanMenu = new ToolStripMenuItem("Fan profile");
+		foreach (FanProfile fp in Enum.GetValues<FanProfile>())
+		{
+			var item = new ToolStripMenuItem(fp.ToString());
+			item.Click += (_, _) =>
+			{
+				this.controller.FanProfile = fp;
+				this.trayIcon.ShowBalloonTip(3000, this.title, $"Fan profile: {fp}", ToolTipIcon.Info);
+			};
+			fanMenu.DropDownItems.Add(item);
+		}
+		trayMenu.Items.Add(fanMenu);
+
+		// GPU mode submenu.
+		var gpuMenu = new ToolStripMenuItem("GPU mode");
+		var gpuIgu = new ToolStripMenuItem("iGPU");
+		gpuIgu.Click += (_, _) => this.Dispatcher.InvokeAsync(async () =>
+		{
+			if (this.controller.GpuModeSupported && this.controller.Aero.Gpu is P7GpuController gpu)
+			{
+				await gpu.SetGpuModeAsync(0);
+				this.trayIcon.ShowBalloonTip(3000, this.title, "GPU mode: iGPU", ToolTipIcon.Info);
+			}
+		});
+		var gpuDgu = new ToolStripMenuItem("dGPU");
+		gpuDgu.Click += (_, _) => this.Dispatcher.InvokeAsync(async () =>
+		{
+			if (this.controller.GpuModeSupported && this.controller.Aero.Gpu is P7GpuController gpu)
+			{
+				await gpu.SetGpuModeAsync(1);
+				this.trayIcon.ShowBalloonTip(3000, this.title, "GPU mode: dGPU", ToolTipIcon.Info);
+			}
+		});
+		gpuMenu.DropDownItems.Add(gpuIgu);
+		gpuMenu.DropDownItems.Add(gpuDgu);
+		trayMenu.Items.Add(gpuMenu);
+
+		// GPU Boost toggle.
+		var gpuBoostItem = new ToolStripMenuItem("GPU Boost");
+		gpuBoostItem.Click += (_, _) => this.Dispatcher.InvokeAsync(() =>
+		{
+			this.controller.GpuDynamicBoost = !this.controller.GpuDynamicBoost;
+			gpuBoostItem.Checked = this.controller.GpuDynamicBoost;
+			this.trayIcon.ShowBalloonTip(3000, this.title, $"GPU Boost: {(this.controller.GpuDynamicBoost ? "On" : "Off")}", ToolTipIcon.Info);
+		});
+		trayMenu.Items.Add(gpuBoostItem);
+
+		// Power Config toggle.
+		var powerConfigItem = new ToolStripMenuItem("Power Config (+10W)");
+		powerConfigItem.Click += (_, _) => this.Dispatcher.InvokeAsync(() =>
+		{
+			this.controller.GpuPowerConfig = !this.controller.GpuPowerConfig;
+			powerConfigItem.Checked = this.controller.GpuPowerConfig;
+			this.trayIcon.ShowBalloonTip(3000, this.title, $"Power Config: {(this.controller.GpuPowerConfig ? "On" : "Off")}", ToolTipIcon.Info);
+		});
+		trayMenu.Items.Add(powerConfigItem);
+
+		// Charge Stop submenu.
+		var chargeMenu = new ToolStripMenuItem("Charge stop");
+		var chargeOff = new ToolStripMenuItem("Disabled");
+		chargeOff.Click += (_, _) => this.Dispatcher.InvokeAsync(() =>
+		{
+			this.controller.ChargeStopEnabled = false;
+			foreach (ToolStripMenuItem child in chargeMenu.DropDownItems)
+				child.Checked = child == chargeOff;
+			this.trayIcon.ShowBalloonTip(3000, this.title, "Charge stop: disabled", ToolTipIcon.Info);
+		});
+		chargeMenu.DropDownItems.Add(chargeOff);
+
+		foreach (int val in new[] { 30, 60, 80 })
+		{
+			var item = new ToolStripMenuItem($"{val}%");
+			item.Click += (_, _) => this.Dispatcher.InvokeAsync(() =>
+			{
+				this.controller.ChargeStopEnabled = true;
+				this.controller.ChargeStop = val;
+				foreach (ToolStripMenuItem child in chargeMenu.DropDownItems)
+					child.Checked = child == item;
+				this.trayIcon.ShowBalloonTip(3000, this.title, $"Charge stop: {val}%", ToolTipIcon.Info);
+			});
+			chargeMenu.DropDownItems.Add(item);
+		}
+		trayMenu.Items.Add(chargeMenu);
+
+		// RGB submenu.
+		var rgbMenu = new ToolStripMenuItem("Set RGB");
+		rgbMenu.DropDownItems.Add("Red", null, async (_, _) => await setRgbAsync(Color.Red));
+		rgbMenu.DropDownItems.Add("Green", null, async (_, _) => await setRgbAsync(Color.Green));
+		rgbMenu.DropDownItems.Add("Blue", null, async (_, _) => await setRgbAsync(Color.Blue));
+		rgbMenu.DropDownItems.Add("Yellow", null, async (_, _) => await setRgbAsync(Color.Yellow));
+		rgbMenu.DropDownItems.Add("Cyan", null, async (_, _) => await setRgbAsync(Color.Cyan));
+		rgbMenu.DropDownItems.Add("Magenta", null, async (_, _) => await setRgbAsync(Color.Magenta));
+		rgbMenu.DropDownItems.Add("White", null, async (_, _) => await setRgbAsync(Color.White));
+		rgbMenu.DropDownItems.Add("Orange", null, async (_, _) => await setRgbAsync(Color.Orange));
+		trayMenu.Items.Add(rgbMenu);
+
+		trayMenu.Items.Add(new ToolStripSeparator());
+
+		var exitItem = new ToolStripMenuItem("Exit");
+		exitItem.Click += (_, _) => this.Shutdown();
+		trayMenu.Items.Add(exitItem);
+
+		this.trayIcon.ContextMenuStrip = trayMenu;
 
 		// Handle Fn key events.
 		this.aero.Keyboard.FnKeyPressed += (_, e2) => { this.Dispatcher.InvokeAsync(() => this.handleFnKey(e2)); };
@@ -192,6 +305,9 @@ public partial class App
 			// Close controller.
 			await this.controller.DisposeAsync();
 
+			// Unregister auto-restart (clean shutdown, no restart needed).
+			NativeMethods.UnregisterApplicationRestart();
+
 			// Reset fan profile to normal so the laptop doesn't melt.
 			if (resetFans)
 				await this.aero.Fans.SetNormalAsync();
@@ -287,5 +403,31 @@ public partial class App
 		// Re-apply fan-profile after hibernation resume.
 		if (e.Mode == PowerModes.Resume)
 			this.controller.FanProfileInvalid = true;
+	}
+
+	private async ValueTask setRgbAsync(Color color)
+	{
+		if (this.controller.Aero.Keyboard.Rgb is not { } rgb)
+			return;
+
+		int brightness = (await rgb.GetEffectAsync()).Brightness;
+		byte[] image = new byte[512];
+
+		for (int i = 0; i < 128; ++i)
+		{
+			image[4 * i + 0] = (byte)i;
+			image[4 * i + 1] = color.R;
+			image[4 * i + 2] = color.G;
+			image[4 * i + 3] = color.B;
+		}
+
+		await rgb.SetImageAsync(1, image);
+		await rgb.SetEffectAsync(new RgbEffect
+		{
+			Type = RgbEffectType.Custom1,
+			Brightness = brightness,
+		});
+
+		this.trayIcon.ShowBalloonTip(3000, this.title, $"RGB set to {color.Name}", ToolTipIcon.Info);
 	}
 }
