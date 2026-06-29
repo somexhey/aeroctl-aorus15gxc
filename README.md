@@ -1,3 +1,16 @@
+# TL;DR:
+
+AI-assisted slopfork of amazing **Aeroctl** - huge thanks to **wtwrp**
+
+Adapted for Aorus 15G XC for improved compatibility
+Minor bugs/inconsistencies are expected (duh)
+
+- Fan controller fix - fan control works for both fans now
+- GPU Power Management features adapted
+- Working iGPU/dGPU switch
+- Tray menu quick controls added
+- Autostart (via Task Scheduler) and Minimize on Close options added
+
 # AeroCtl
 
 This is a replacement for the Gigabyte "SmartManager" and/or "ControlCenter" found on the Gigabyte AERO series of notebooks. These apps can not simply be uninstalled without losing some functionality, such as Fn key support (Wifi toggle, display brightness, ...). Since these programs contain a lot of bloat and even require Intel XTU to be running at all times, and are generally pretty bad (how did they even pass QA with typos all over the place?), there was a need to replace them with something minimalist that covers everything not already covered by either standard Windows settings or dedicated tools like ThrottleStop, HWiNFO, etc. It currently implements:
