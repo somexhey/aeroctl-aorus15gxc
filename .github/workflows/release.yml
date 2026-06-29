@@ -1,0 +1,82 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.x"
+
+      - name: Restore
+        run: dotnet restore AeroCtl.UI/AeroCtl.UI.csproj
+
+      - name: Publish AeroCtl.UI
+        run: |
+          dotnet publish AeroCtl.UI/AeroCtl.UI.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained false `
+            -o publish/AeroCtl.UI
+
+      - name: Publish samples
+        run: |
+          dotnet publish Samples/AeroCtl.Rgb.Rainbow/AeroCtl.Rgb.Rainbow.csproj -c Release -r win-x64 --self-contained false -o publish/Samples/Rainbow
+          dotnet publish Samples/AeroCtl.Rgb.LockKeys/AeroCtl.Rgb.LockKeys.csproj -c Release -r win-x64 --self-contained false -o publish/Samples/LockKeys
+          dotnet publish Samples/AeroCtl.Rgb.Calibrate/AeroCtl.Rgb.Calibrate.csproj -c Release -r win-x64 --self-contained false -o publish/Samples/Calibrate
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: AeroCtl
+          path: publish/
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: AeroCtl
+          path: AeroCtl
+
+      - name: Create archive
+        run: |
+          cd AeroCtl
+          7z a -tzip ../AeroCtl-${{ github.ref_name }}.zip .
+
+      - name: Generate release notes
+        id: notes
+        shell: bash
+        run: |
+          echo "### AeroCtl ${{ github.ref_name }}" > release-notes.md
+          git log --oneline --no-decorate v1..HEAD >> release-notes.md 2>/dev/null || true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: AeroCtl ${{ github.ref_name }}
+          body_path: release-notes.md
+          files: AeroCtl-${{ github.ref_name }}.zip
