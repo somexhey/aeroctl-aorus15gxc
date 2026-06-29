@@ -1,6 +1,7 @@
 # TL;DR:
 
 AI-assisted slopfork of amazing **Aeroctl** - huge thanks to **wtwrp**
+
 Adapted for Aorus 15G XC for improved compatibility
 Minor bugs/inconsistencies are expected (duh)
 
