@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ public class P7GpuController : NvGpuController
 {
 	private readonly AeroWmi wmi;
 
+	[Conditional("DEBUG")]
 	private static void Log(string msg)
 	{
 		File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} {msg}\n");

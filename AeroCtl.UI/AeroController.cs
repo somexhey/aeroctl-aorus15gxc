@@ -1288,7 +1288,7 @@ public class AeroController : INotifyPropertyChanged
 					}
 					catch (Exception ex)
 					{
-						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetAiBoostEnabledAsync threw: {ex}\n");
+						Log($"GetAiBoostEnabledAsync threw: {ex}");
 					}
 
 					try
@@ -1297,7 +1297,7 @@ public class AeroController : INotifyPropertyChanged
 					}
 					catch (Exception ex)
 					{
-						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetPowerConfigAsync threw: {ex}\n");
+						Log($"GetPowerConfigAsync threw: {ex}");
 					}
 
 					try
@@ -1306,7 +1306,7 @@ public class AeroController : INotifyPropertyChanged
 					}
 					catch (Exception ex)
 					{
-						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetDynamicBoostAsync threw: {ex}\n");
+						Log($"GetDynamicBoostAsync threw: {ex}");
 					}
 
 					try
@@ -1315,7 +1315,7 @@ public class AeroController : INotifyPropertyChanged
 					}
 					catch (Exception ex)
 					{
-						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetThermalTargetEnabledAsync threw: {ex}\n");
+						Log($"GetThermalTargetEnabledAsync threw: {ex}");
 					}
 
 					try
@@ -1324,7 +1324,7 @@ public class AeroController : INotifyPropertyChanged
 					}
 					catch (Exception ex)
 					{
-						File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} GetGpuModeAsync threw: {ex}\n");
+						Log($"GetGpuModeAsync threw: {ex}");
 					}
 				}
 
@@ -1449,6 +1449,12 @@ public class AeroController : INotifyPropertyChanged
 	}
 
 	#endregion
+
+	[Conditional("DEBUG")]
+	private static void Log(string msg)
+	{
+		File.AppendAllText("aeroctl_debug.log", $"{DateTime.Now:HH:mm:ss.fff} {msg}\n");
+	}
 }
 
 internal static class NativeMethods

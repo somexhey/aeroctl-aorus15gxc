@@ -95,7 +95,7 @@ Laptops with open issues or other reports of limited functionality.
 - GPU mode switch uses `PEG2/SG2` (WmiMethodId 230) — persists after reboot. Values: 0 = iGPU, 1 = dGPU. MSHybrid (2) is excluded from the UI as GCC only shows iGPU/dGPU on this model.
 - `GetNvPowerConfig` and `GetDynamicBoostStatus` ACPI methods are not implemented in BIOS FB07 — getters return the last cached set value; setters work correctly.
 - `BlockWinkey` is present in the WMI schema but the ACPI implementation is missing on FB07.
-- Debug logging is written to `aeroctl_debug.log` in the working directory when getter/setter calls fail.
+- Debug logging (written to `aeroctl_debug.log` in the working directory) is compiled out in Release builds. To enable it, rebuild in Debug configuration (`dotnet build -c Debug`).
 
 ## License
 
